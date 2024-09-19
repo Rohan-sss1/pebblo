@@ -1,6 +1,8 @@
 name: Run Pebblo Integration Tests
 on:
-  - pull_request
+  pull_request:
+    branches:
+      - main
 
   workflow_dispatch: # Activate this workflow manually
 env:
