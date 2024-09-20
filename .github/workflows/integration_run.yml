@@ -13,20 +13,21 @@ env:
 jobs:
   Setup_Pebblo_Run_Tests:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        langchain-community-version: ["0.2.10", "0.2.12", "0.2.16", "0.3.0"]
+        langchain-community-version: ["0.3.0"] #"0.2.10", "0.2.12", "0.2.16"
+        python-version: ["3.10.15", "3.11.10", "3.12.6"]
 
+    name: Running tests on Python ${{ matrix.python-version }} & langchain-community ${{ matrix.langchain-community-version }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           ref: 'main'
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Build Pebblo
         run: |

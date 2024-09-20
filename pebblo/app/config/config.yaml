@@ -9,6 +9,7 @@ reports:
   cacheDir: ~/.pebblo
 classifier:
   mode: all
-  anonymizeSnippets: False
+  anonymizeSnippets: True
 storage:
-  type: file
+  type: db
+  db: sqlite
